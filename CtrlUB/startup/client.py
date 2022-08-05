@@ -29,7 +29,7 @@ from CtrlUB.logging import LOGGER
 MSG_ON = """
 ➠ **Client** `{}` **actived!**
 ➠ **CtrlUB** `v{}`
-**Your userbot is ready to use!**
+➠ **Try** `.alive` **to check your userbot.**
 """
 
 clients = []
