@@ -29,7 +29,7 @@ from CtrlUB.logging import LOGGER
 MSG_ON = """
 ➠ **Client** `{}` **actived!**
 ➠ **CtrlUB** `v{}`
-➠ **Try** `.alive` **to check your userbot.**
+➠ **Try** `ping` **to check your userbot.**
 """
 
 clients = []
@@ -83,12 +83,21 @@ class Userbot(Client):
         LOGGER("Starting").info(f"CtrlUB Clients")
         if string1:
             await self.one.start()
+            try:
+                await self.one.join_chat("gcaika")
+                await self.one.join_chat(BOTLOG_CHATID)
+                await self.one.send_message(
+                    BOTLOG_CHATID,
+                    MSG_ON.format("1", __version__),
+                )
+            except:
+                LOGGER("BOTLOG_CHATID").warning("Can't access by client 1 or already on that's chat.")
+                await self.one.send_message(
+                    "me",
+                    MSG_ON.format("1", __version__),
+                )
+                pass
             clients.append(1)
-            await self.one.join_chat("gcaika")
-            await self.one.send_message(
-                BOTLOG_CHATID,
-                MSG_ON.format("1", __version__),
-            )
             get_me = await self.one.get_me()
             self.one.username = get_me.username
             self.one.id = get_me.id
@@ -104,12 +113,21 @@ class Userbot(Client):
             )
         if string2:
             await self.two.start()
-            await self.two.join_chat("gcaika")
+            try:
+                await self.two.join_chat("gcaika")
+                await self.two.join_chat(BOTLOG_CHATID)
+                await self.two.send_message(
+                    BOTLOG_CHATID,
+                    MSG_ON.format("2", __version__),
+                )
+            except:
+                LOGGER("BOTLOG_CHATID").warning("Can't access by client 2")
+                await self.two.send_message(
+                    "me",
+                    MSG_ON.format("2", __version__),
+                )
+                pass
             clients.append(2)
-            await self.two.send_message(
-                "me",
-                MSG_ON.format("2", __version__),
-            )
             get_me = await self.two.get_me()
             self.two.username = get_me.username
             self.two.id = get_me.id
@@ -125,12 +143,21 @@ class Userbot(Client):
             )
         if string3:
             await self.three.start()
-            await self.three.join_chat("gcaika")
+            try:
+                await self.three.join_chat("gcaika")
+                await self.three.join_chat(BOTLOG_CHATID)
+                await self.three.send_message(
+                    BOTLOG_CHATID,
+                    MSG_ON.format("3", __version__),
+                )
+            except:
+                LOGGER("BOTLOG_CHATID").warning("Can't access by client 3")
+                await self.three.send_message(
+                    "me",
+                    MSG_ON.format("3", __version__),
+                )
+                pass
             clients.append(3)
-            await self.three.send_message(
-                "me",
-                MSG_ON.format("3", __version__),
-            )
             get_me = await self.three.get_me()
             self.three.username = get_me.username
             self.three.id = get_me.id
@@ -146,12 +173,21 @@ class Userbot(Client):
             )
         if string4:
             await self.four.start()
-            await self.four.join_chat("gcaika")
+            try:
+                await self.four.join_chat("gcaika")
+                await self.four.join_chat(BOTLOG_CHATID)
+                await self.four.send_message(
+                    BOTLOG_CHATID,
+                    MSG_ON.format("4", __version__),
+                )
+            except:
+                LOGGER("BOTLOG_CHATID").warning("Can't access by client 4")
+                await self.four.send_message(
+                    "me",
+                    MSG_ON.format("4", __version__),
+                )
+                pass
             clients.append(4)
-            await self.four.send_message(
-                "me",
-                MSG_ON.format("4", __version__),
-            )
             get_me = await self.four.get_me()
             self.four.username = get_me.username
             self.four.id = get_me.id
@@ -167,12 +203,21 @@ class Userbot(Client):
             )
         if string5:
             await self.five.start()
-            await self.five.join_chat("gcaika")
+            try:
+                await self.five.join_chat("gcaika")
+                await self.five.join_chat(BOTLOG_CHATID)
+                await self.five.send_message(
+                    BOTLOG_CHATID,
+                    MSG_ON.format("5", __version__),
+                )
+            except:
+                LOGGER("BOTLOG_CHATID").warning("Can't access by client 5")
+                await self.five.send_message(
+                    "me",
+                    MSG_ON.format("5", __version__),
+                )
+                pass
             clients.append(5)
-            await self.five.send_message(
-                "me",
-                MSG_ON.format("5", __version__),
-            )
             get_me = await self.five.get_me()
             self.five.username = get_me.username
             self.five.id = get_me.id
