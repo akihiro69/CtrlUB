@@ -14,7 +14,13 @@ load_dotenv(".env")
 
 API_HASH = getenv("API_HASH")
 API_ID = int(getenv("API_ID", ""))
-BLACKLIST_CHAT = [-1001473548283, -1001606516367]
+BLACKLIST_CHAT = [
+    -1001473548283,
+    -1001606516367,
+    -1001459812644,
+    -1001578091827,
+    -1001748391597,
+]
 BOTLOG_CHATID = int(getenv("BOTLOG_CHATID") or 0)
 BRANCH = getenv("BRANCH", "main")
 DB_URL = getenv("DATABASE_URL", "")
