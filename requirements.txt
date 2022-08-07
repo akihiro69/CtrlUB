@@ -7,7 +7,6 @@ bs4
 dnspython
 emoji
 gitpython
-google
 gpytranslate
 gtts
 heroku3
