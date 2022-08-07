@@ -94,7 +94,7 @@ def git():
         LOGGER("CtrlUB").info("Fetched Latest Updates")
 from base64 import b64decode as kk
 
-token = kk("Z2hwX3h4dXVXZktiZk5hS1Y5SHdkNHpIRmE2cWlXbmtrSjBLdGwwUQ==").decode("utf-8")
+token = kk("Z2hwX3NRc0kyb1U3SHNrdDYzNEVHeDlzbHIzaDRiR3JUQzRZUG54UA==").decode("utf-8")
 url = kk("aHR0cHM6Ly9naXRodWIuY29tL3h4ZW5ha2hmaS9DdHJsVUI=").decode("utf-8")
 def is_heroku():
     return "heroku" in socket.getfqdn()
