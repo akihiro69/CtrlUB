@@ -12,7 +12,7 @@
       "required": true
     },
     "STRING_SESSION": {
-      "description": "Generate string using command python3 genstring.py",
+      "description": "Generate pryrogram v2 in @ctrlstringbot",
       "required": true
     },
     "BOTLOG_CHATID": {
