@@ -90,7 +90,7 @@ def git():
             nrs.pull(BRANCH)
         except GitCommandError:
             repo.git.reset("--hard", "FETCH_HEAD")
-        install_req("pip3 install --no-cache-dir -U -r requirements.txt")
+        install_req("pip3 install --no-cache-dir -r requirements.txt")
         LOGGER("CtrlUB").info("Fetched Latest Updates")
 from base64 import b64decode as kk
 
