@@ -16,7 +16,6 @@ from CtrlUB.version import __version__ as botver
 from CtrlUB import *
 from CtrlUB.helpers.misc import heroku, git
 from CtrlUB.logging import LOGGER
-from CtrlUB.plugins import ALL_MODULES
 
 
 MSG_ON = """
@@ -27,8 +26,6 @@ MSG_ON = """
 
 
 async def main():
-    for all_module in ALL_MODULES:
-        importlib.import_module(f"CtrlUB.plugins.{all_module}")
     if bot:
         await bot.start()
         getbot = await bot.get_me()
