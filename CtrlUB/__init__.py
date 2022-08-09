@@ -15,9 +15,20 @@ from aiohttp import ClientSession
 from gpytranslate import Translator
 from pyrogram import Client
 from pyrogram.types import *
-from CtrlUB.config import API_ID, API_HASH, STRING_SESSION, DB_URL, BOTLOG_CHATID
+from CtrlUB.config import (
+    API_ID,
+    API_HASH,
+    BOTLOG_CHATID,
+    BOT_TOKEN,
+    STRING_SESSION as string1,
+    STRING_SESSION2 as string2,
+    STRING_SESSION3 as string3,
+    STRING_SESSION4 as string4,
+    STRING_SESSION5 as string5,
+    DB_URL,
+    BOTLOG_CHATID,
+)
 from CtrlUB.logging import LOGGER
-from CtrlUB.startup.client import Userbot, Bot
 
 
 LOOP = asyncio.get_event_loop_policy().get_event_loop()
@@ -35,7 +46,7 @@ API_ID = API_ID
 API_HASH = API_HASH
 DB_URL = DB_URL
 
-if not STRING_SESSION:
+if not string1:
     LOGGER(__name__).error("No String Session Found! Exiting!")
     sys.exit()
 
@@ -52,5 +63,67 @@ if BOTLOG_CHATID:
 else:
     BOTLOG_CHATID = "me"
 
-bot = Userbot()
-app = Bot()
+
+if string1:
+    app = Client(
+        name="ctrl1",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_string=string1,
+        plugins=dict(root="CtrlUB/plugins"),
+        in_memory=True,
+    )
+if string2:
+    app2 = Client(
+        name="ctrl2",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_string=string2,
+        plugins=dict(root="CtrlUB/plugins"),
+        in_memory=True,
+    )
+else:
+    app2 = None
+if string3:
+    app3 = Client(
+        name="ctrl3",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_string=string3,
+        plugins=dict(root="CtrlUB/plugins"),
+        in_memory=True,
+    )
+else:
+    app3 = None
+if string4:
+    app4 = Client(
+        name="ctrl4",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_string=string4,
+        plugins=dict(root="CtrlUB/plugins"),
+        in_memory=True,
+    )
+else:
+    app4 = None
+if string5:
+    app5 = Client(
+        name="ctrl5",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        session_string=string5,
+        plugins=dict(root="CtrlUB/plugins"),
+        in_memory=True,
+    )
+else:
+    app5 = None
+
+if BOT_TOKEN:
+    bot = Client(
+        name="assistantbot",
+        api_id=API_ID,
+        api_hash=API_HASH,
+        bot_token=BOT_TOKEN,
+    )
+else:
+    bot = None
