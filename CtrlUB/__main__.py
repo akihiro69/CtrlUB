@@ -69,6 +69,7 @@ async def main():
             pass
         LOGGER("Client 3").info(f"Started as {get3.first_name} [{get3.id}]")
     if app4:
+        await app4.start()
         get4 = await app4.get_me()
         try:
             await app4.join_chat("gcaika")
