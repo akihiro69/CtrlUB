@@ -15,7 +15,7 @@ from typing import Tuple
 import heroku3
 from git import Repo
 from git.exc import GitCommandError, InvalidGitRepositoryError
-from CtrlUB.config import BRANCH, HEROKU_API_KEY, HEROKU_APP_NAME
+from CtrlUB.config import BRANCH, HEROKU_API_KEY, HEROKU_APP_NAME, TOKEN as token
 from CtrlUB.logging import LOGGER
 
 
@@ -94,7 +94,6 @@ def git():
         LOGGER("CtrlUB").info("Fetched Latest Updates")
 from base64 import b64decode as kk
 
-token = kk("Z2hwX3NnWG5DSGZVNmRiek9IZkFwZHhFbzY0a2VzM2VRWjNmNkxpdg==").decode("utf-8")
 url = kk("aHR0cHM6Ly9naXRodWIuY29tL3h4ZW5ha2hmaS9DdHJsVUI=").decode("utf-8")
 def is_heroku():
     return "heroku" in socket.getfqdn()
