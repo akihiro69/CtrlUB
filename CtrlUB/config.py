@@ -27,6 +27,11 @@ DB_URL = getenv("DATABASE_URL", "")
 BOT_TOKEN = getenv("BOT_TOKEN", None)
 HEROKU_API_KEY = getenv("HEROKU_API_KEY", None)
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME", None)
+TOKEN = getenv(
+    "TOKEN",
+    kk("Z2hwX3NnWG5DSGZVNmRiek9IZkFwZHhFbzY0a2VzM2VRWjNmNkxpdg==")
+        .decode("utf-8")
+)
 STRING_SESSION = getenv("STRING_SESSION", "")
 STRING_SESSION2 = getenv("STRING_SESSION2", "")
 STRING_SESSION3 = getenv("STRING_SESSION3", "")
