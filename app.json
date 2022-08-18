@@ -15,11 +15,6 @@
       "description": "Generate pryrogram v2 in @ctrlstringbot",
       "required": true
     },
-    "BOTLOG_CHATID": {
-      "description": "Create a telegram group and get the id with @missrose_bot with type /id. Ex: -1001473548xxx",
-      "value": "",
-      "required": true
-    },
     "HEROKU_API_KEY": {
       "description": "aget your Heroku API KEY here » https://dashboard.heroku.com/account",
       "required": true
