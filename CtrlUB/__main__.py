@@ -67,10 +67,6 @@ async def main():
             MSG_ON.format(botver)
         )
     except:
-        await app.send_message(
-            "me",
-            MSG_ON.format(botver)
-        )
         pass
     LOGGER("Client 1").info(f"Started as {get1.first_name} [{get1.id}]")
     if app2:
