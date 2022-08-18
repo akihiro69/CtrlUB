@@ -8,9 +8,10 @@
 
 import sys
 import importlib
+import heroku3
 from pyrogram import idle
 from uvloop import install
-from CtrlUB.config import BOT_TOKEN
+from CtrlUB.config import BOTLOG_CHATID, BOT_TOKEN, HEROKU_APP_NAME, HEROKU_API_KEY
 
 from CtrlUB.version import __version__ as botver
 from CtrlUB import *
@@ -20,10 +21,23 @@ from CtrlUB.logging import LOGGER
 
 MSG_ON = """
 ✅ **CtrlUB Is Actived!**
+
 ➠ **Userbot Version -** `{}`
-➠ **Try** `alive` **for check your bot**
+➠ **Try** `.alive` **for check your bot**
 """
 
+heroku_api = "https://api.heroku.com"
+if HEROKU_APP_NAME is not None and HEROKU_API_KEY is not None:
+    Heroku = heroku3.from_key(HEROKU_API_KEY)
+    y = Heroku.app(HEROKU_APP_NAME)
+    heroku_var = y.config()
+else:
+    y = None
+
+
+group_name = "My CtrlUB Logs"
+desc = "Log Groups CtrlUB.\n\nDon't leave from this group.\n\n✨ Powered By ~ @gcaika ✨"
+pic = "https://telegra.ph/file/08dbd520fe706eac694ec.jpg"
 
 async def main():
     if bot:
@@ -32,6 +46,20 @@ async def main():
         LOGGER("Assistant Bot").info(f"Started as {getbot.first_name} [{getbot.id}]")
     await app.start()
     get1 = await app.get_me()
+    if not BOTLOG_CHATID:
+        LOGGER("HEROKU").info("Creating your userbot logs...")
+        try:
+            _id = await app.create_supergroup(group_name, desc)
+            gcid = int(str(f"{_id.id}"))
+            await app.set_chat_photo(_id.id, photo=pic)
+            heroku_var["BOTLOG_CHATID"] = gcid
+        except Exception as e:
+            LOGGER("HEROKU").error(str(e))
+            LOGGER("HEROKU").warning(
+                "see and set your var BOTLOG_CHATID. Create a telegram group then add @MissRose_Bot as co-founder and type /id, then put the id to var BOTLOG_CHATID"
+            )
+    else:
+        pass
     try:
         await app.join_chat("gcaika")
         await app.send_message(
@@ -39,7 +67,10 @@ async def main():
             MSG_ON.format(botver)
         )
     except:
-        LOGGER("BOTLOG_CHATID").info(f"Can't acces by client 1 or not configured.")
+        await app.send_message(
+            "me",
+            MSG_ON.format(botver)
+        )
         pass
     LOGGER("Client 1").info(f"Started as {get1.first_name} [{get1.id}]")
     if app2:
@@ -52,7 +83,10 @@ async def main():
                 MSG_ON.format(botver)
             )
         except:
-            LOGGER("BOTLOG_CHATID").info(f"Can't acces by client 2 or not configured.")
+            await app2.send_message(
+                "me",
+                MSG_ON.format(botver)
+            )
             pass
         LOGGER("Client 2").info(f"Started as {get2.first_name} [{get2.id}]")
     if app3:
@@ -65,7 +99,10 @@ async def main():
                 MSG_ON.format(botver)
             )
         except:
-            LOGGER("BOTLOG_CHATID").info(f"Can't acces by client 3 or not configured.")
+            await app3.send_message(
+                "me",
+                MSG_ON.format(botver)
+            )
             pass
         LOGGER("Client 3").info(f"Started as {get3.first_name} [{get3.id}]")
     if app4:
@@ -78,7 +115,10 @@ async def main():
                 MSG_ON.format(botver)
             )
         except:
-            LOGGER("BOTLOG_CHATID").info(f"Can't acces by client 4 or not configured.")
+            await app4.send_message(
+                "me",
+                MSG_ON.format(botver)
+            )
             pass
         LOGGER("Client 4").info(f"Started as {get4.first_name} [{get4.id}]")
     if app5:
@@ -91,12 +131,16 @@ async def main():
                 MSG_ON.format(botver)
             )
         except:
-            LOGGER("BOTLOG_CHATID").info(f"Can't acces by client 5 or not configured.")
+            await app5.send_message(
+                "me",
+                MSG_ON.format(botver)
+            )
             pass
         LOGGER("Client 5").info(f"Started as {get5.first_name} [{get5.id}]")
     LOGGER("CtrlUB").info(f"Bot v{botver} is actived!")
     await idle()
     await aiosession.close()
+
 
 if __name__ == "__main__":
     install()
