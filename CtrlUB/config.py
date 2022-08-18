@@ -22,7 +22,7 @@ BLACKLIST_CHAT = [
     -1001578091827,
     -1001748391597,
 ]
-BOTLOG_CHATID = int(getenv("BOTLOG_CHATID"))
+BOTLOG_CHATID = int(getenv("BOTLOG_CHATID", "0"))
 BRANCH = getenv("BRANCH", "main")
 DB_URL = getenv("DATABASE_URL", "")
 BOT_TOKEN = getenv("BOT_TOKEN", None)
