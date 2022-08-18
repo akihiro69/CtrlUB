@@ -18,7 +18,6 @@ from pyrogram.types import *
 from CtrlUB.config import (
     API_ID,
     API_HASH,
-    BOTLOG_CHATID,
     BOT_TOKEN,
     STRING_SESSION as string1,
     STRING_SESSION2 as string2,
@@ -26,7 +25,6 @@ from CtrlUB.config import (
     STRING_SESSION4 as string4,
     STRING_SESSION5 as string5,
     DB_URL,
-    BOTLOG_CHATID,
 )
 from CtrlUB.logging import LOGGER
 
@@ -57,11 +55,6 @@ if not API_ID:
 if not API_HASH:
     LOGGER(__name__).error("No API_HASH Found! Exiting!")
     sys.exit()
-
-if BOTLOG_CHATID:
-    BOTLOG_CHATID = BOTLOG_CHATID
-else:
-    BOTLOG_CHATID = "me"
 
 
 if string1:
