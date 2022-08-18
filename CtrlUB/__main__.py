@@ -37,7 +37,7 @@ else:
 
 group_name = "My CtrlUB Logs"
 desc = "Log Groups CtrlUB.\n\nDon't leave from this group.\n\n✨ Powered By ~ @gcaika ✨"
-pic = "https://telegra.ph/file/08dbd520fe706eac694ec.jpg"
+
 
 async def main():
     if bot:
@@ -51,7 +51,7 @@ async def main():
         try:
             _id = await app.create_supergroup(group_name, desc)
             gcid = int(str(f"{_id.id}"))
-            await app.set_chat_photo(_id.id, photo=pic)
+            await app.set_chat_photo(_id.id, photo="CtrlUB/image/ctrlub.png")
             heroku_var["BOTLOG_CHATID"] = gcid
         except Exception as e:
             LOGGER("HEROKU").error(str(e))
