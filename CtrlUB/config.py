@@ -6,6 +6,7 @@
 #
 
 
+import requests
 from base64 import b64decode as kk
 from distutils.util import strtobool
 from os import getenv
@@ -15,13 +16,21 @@ load_dotenv(".env")
 
 API_HASH = getenv("API_HASH")
 API_ID = int(getenv("API_ID", ""))
-BLACKLIST_CHAT = [
-    -1001473548283,
-    -1001606516367,
-    -1001459812644,
-    -1001578091827,
-    -1001748391597,
-]
+
+while 0 < 6:
+    _BLACKLIST_CHAT = requests.get(
+        "https://raw.githubusercontent.com/kennedy-ex/apa-iya/master/blgcast.json"
+    )
+    if _BLACKLIST_CHAT.status_code != 200:
+        if 0 != 5:
+            continue
+        BLACKLIST_CHAT = [-1001473548283, -1001390552926, -1001606516367]
+        break
+    BLACKLIST_CHAT = _BLACKLIST_CHAT.json()
+    break
+
+del _BLACKLIST_CHAT
+
 BOTLOG_CHATID = int(getenv("BOTLOG_CHATID", "0"))
 BRANCH = getenv("BRANCH", "main")
 DB_URL = getenv("DATABASE_URL", "")
